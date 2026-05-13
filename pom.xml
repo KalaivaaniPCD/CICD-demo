@@ -49,7 +49,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>DockerDemo</finalName>
+		<finalName>CICDDemo</finalName>
 	</build>
 
 </project>
