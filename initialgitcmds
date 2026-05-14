@@ -1,0 +1,53 @@
+echo "# CICD-demo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/KalaivaaniPCD/CICD-demo.git
+git push -u origin master
+…or push an existing repository from the command line
+git remote add origin https://github.com/KalaivaaniPCD/CICD-demo.git
+git branch -M master
+git push -u origin master
+
+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
+
+ stage('Build Image') {
+            steps {
+                script{
+                        sh 'docker ps'
+                        sh 'docker build -t kalaivaanipcd/cicddemo-pipeline .'
+                }
+            }
+          } 
+
+FROM openjdk:17.0.2-jdk
+EXPOSE 8090
+ADD target/CICD-demo-0.0.1-SNAPSHOT.jar CICD-demo-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","CICD-demo-0.0.1-SNAPSHOT.jar"]
+
+
+FROM openjdk:17.0.2-jdk
+EXPOSE 8090
+COPY target/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"] 
+
+…or create a new repository on the command line
+echo "# Docker-demo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/KalaivaaniPCD/Docker-demo.git
+git push -u origin master
+…or push an existing repository from the command line
+git remote add origin https://github.com/KalaivaaniPCD/Docker-demo.git
+git branch -M master
+git push -u origin master 
+
+
+            
+          }
+          
+          [INFO] Installing /var/lib/jenkins/workspace/CICD-pipeline/pom.xml to /var/lib/jenkins/.m2/repository/com/wipro/CICD-demo/0.0.1-SNAPSHOT/CICD-demo-0.0.1-SNAPSHOT.pom
+[INFO] Installing /var/lib/jenkins/workspace/CICD-pipeline/target/CICDDemo.jar to /var/lib/jenkins/.m2/repository/com/wipro/CICD-demo/0.0.1-SNAPSHOT/CICD-demo-0.0.1-SNAPSHOT.jar
